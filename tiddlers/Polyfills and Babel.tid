@@ -1,0 +1,19 @@
+caption: Polyfills
+created: 20230826170032865
+list-after: Babel non class modules
+modified: 20230826171741652
+tags: [[Babel tutorial]]
+title: Polyfills and Babel
+type: text/vnd.tiddlywiki
+
+!! Polyfills
+
+<<callout 
+type:"info" 
+src:"""A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support.
+"""
+title:"" 
+width:"100%", 
+class:"">>
+
+ES2015 comes with some features that are part of the JavaScript core objects. These are not supported by all browsers. To use these features in [[most browsers|BrowserCompatibility]] you will need a // polyfill//. Babel has a polyfill package that you can include. See [[Adding Babel Polyfill to TiddlyWiki|https://tiddlywiki.com/dev/#Adding%20Babel%20Polyfill%20to%20TiddlyWiki]] for how to accomplish this.

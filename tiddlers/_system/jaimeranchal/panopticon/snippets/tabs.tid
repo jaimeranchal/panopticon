@@ -1,0 +1,14 @@
+caption: Tabs
+created: 20230822065426296
+modified: 20230822065453792
+tags: $:/tags/TextEditor/Snippet
+title: $:/jaimeranchal/panopticon/snippets/tabs
+type: text/vnd.tiddlywiki
+
+<$macrocall
+  $name="tabs"
+  tabsList="[all[tiddlers+shadows]tag[]]"
+  default={{$:/config/projectify/DefaultDashboardTab}}
+  state="$:/state/projects-and-schedule"
+  class="py-tabs"
+/>.

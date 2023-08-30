@@ -1,0 +1,7 @@
+created: 20230822091835057
+modified: 20230822091900907
+tags: 
+title: $:/jaimeranchal/panopticon/config/sprint-title
+type: text/vnd.tiddlywiki
+
+<$text text={{!!title}}>

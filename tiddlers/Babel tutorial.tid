@@ -1,0 +1,17 @@
+caption: Babel tutorial (TW5 Dev)
+created: 20230826165228965
+list-before: 
+modified: 20230826172947562
+tags: [[Babel and ES6]]
+title: Babel tutorial
+type: text/vnd.tiddlywiki
+
+Please understand how the PluginMechanism works since this is all about writing a plugin using Babel to compile the output that will be included in the final TiddlyWiki (for example [[TiddlyWiki on Node.js]]).
+
+<$macrocall
+  $name="tabs"
+  tabsList="[all[tiddlers+shadows]tag[Babel tutorial]]"
+  default="Install and configure Babel"
+  state="$:/state/babel-tutorial"
+  class="py-tabs tc-vertical"
+/>

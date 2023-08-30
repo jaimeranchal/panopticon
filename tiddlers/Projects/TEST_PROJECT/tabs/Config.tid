@@ -1,0 +1,10 @@
+caption: ⚙️ Config
+created: 20230822070958062
+modified: 20230830061123502
+tags: 
+title: TEST_PROJECT/tabs/Config
+type: text/vnd.tiddlywiki
+
+<<table-dynamic filter:"[!has[draft.of]prefix[$:/config/TEST_PROJECT/]]" fields:"title created modified tbl-clone" indexes:"" caption:"" sortOp:"sort" class:"w-100" footerRows:"0" stateTiddler:"" editButton:"yes" pagination:"no" emptyMessage:"filter input is empty">>
+
+<<details label:"📅 Sprints" src:"""<<sprint-manager-table "TEST_PROJECT">>""" status:"" labelClass:"" srcClass:"">>

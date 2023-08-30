@@ -1,0 +1,35 @@
+caption: Imports and Exports
+created: 20230826165926402
+list-after: Compile Babel output
+modified: 20230826170548436
+tags: [[Babel tutorial]]
+title: Babel import and exports
+type: text/vnd.tiddlywiki
+
+!! Imports and Exports
+
+In a plugin written pre-ES2015 one would `require` a module through TiddlyWiki like so:
+
+```javascript
+var Widget = require('$:/core/modules/widgets/widget.js').widget;
+```
+
+But in ES2015 the following would look like:
+
+```javascript
+import { widget as Widget } from '$:/core/modules/widgets/widget.js';
+```
+
+Conveniently when Babel compiles this it will essentially output the same JavaScript as the first pre-ES2016 code.
+
+Also, in ES2016 you are required to declare your imports at the beginning and can not dynamically `require` things. This means you can not have an `import` statement in an if block or in a function. If that functionality is desired then you will have to go back to using the `require()` statement directly. But conciser that by doing so that you may be missing an oppertunity to make your code cleaner and better.
+
+Exporting is the same thing. Instead of assigning to a property of the `exports` variable you use the `export` keyword:
+
+```javascript
+export { MyWidget as mywidget };
+```
+
+<<.tip "It is illegal JavaScript to export with a name that is not an identifier even though it is ok to use a non-identifier (string) as a property key. What this means is if you want a widget to have a dash in it then you have to revert to using the `exports['my-widget'] = MyWidget;` syntax.">>
+
+It is important to understand that in ES2016 the ''default'' export is not supported in TiddlyWiki. This is mostly because the core code expects specific properties to be attached to the `exports` variable. Bable's `export` conversion plays well with this //except// with the default export.

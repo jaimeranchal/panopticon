@@ -1,0 +1,38 @@
+created: 20230822155549871
+modified: 20230830060922366
+tags: $:/tags/Global
+title: $:/jaimeranchal/panopticon/macros/task-manager
+type: text/vnd.tiddlywiki
+
+\procedure task-manager-table(project)
+<<details label:"<h3>Fields displayed</h3>" src:"""
+<$list filter="[[$:/config/<<project>>/Tasks/fields]get[text]jsonindexes[]]" variable="property">
+''<<property>>''<br/>
+<$list variable="value" filter="[[$:/config/<<project>>/Tasks/fields]get[text]jsonindexes<property>]">
+<$checkbox tiddler="$:/config/<<project>>/Tasks/fields" listField="selected" 
+checked=<<value>> 
+unchecked="" 
+default="">  <<value>></$checkbox><br/></$list><br/>
+</$list>"""
+status:"" labelClass:"" srcClass:"">>
+
+''Filters'':<br>
+<$list filter="[[$:/config/<<project>>/Tasks/fields]get[selected]]" variable="field">
+<!-- search specific configuration for that field -->
+<!-- display input/checkbox depending on the config -->
+<<field>>
+</$list>
+
+<$macrocall 
+$name="table-dynamic"
+filter="[!is[system]!has[draft.of]prefix[<<project>>/]tag[Task]]" 
+fields={{$:/config/<<project>>/Tasks/fields!!selected}}
+caption="" 
+class="w-100" footerRows="0" 
+stateTiddler="$:/state/<<project>>/Issues" 
+editButton="yes" 
+pagination="yes" 
+emptyMessage="filter input is empty"/>
+\end
+
+<<task-manager-table "TEST_PROJECT">>

@@ -1,0 +1,33 @@
+caption: First steps
+created: 20230826165619921
+list-before: 
+modified: 20230826170636579
+tags: [[Babel tutorial]]
+title: Install and configure Babel
+type: text/vnd.tiddlywiki
+
+!! Installing and Configuring Babel
+
+You can install Babel using
+
+```
+$ npm install --global babel-cli babel-presets-es2015
+```
+
+If your developing the plugin for inclusion to the npm registry (or for convenience) you can avoid the global install and save it to the local `package.json` file with
+
+```
+$ npm install --save-dev babel-cli babel-presets-es2015
+```
+
+Inside your plugin project edit the file `.babelrc` and enter the following:
+
+```json
+{
+  "presets": [
+    "es2015"
+  ]
+}
+```
+
+<<.tip "I found it easier to manage my plugins as if they were ''npm'' modules complete with a `package.json` that compiles the output via `npm run build`. See [[npm-scripts documentation|https://docs.npmjs.com/misc/scripts]] for details.">>

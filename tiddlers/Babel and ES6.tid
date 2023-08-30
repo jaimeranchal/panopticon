@@ -1,0 +1,14 @@
+caption: Using ES6 in TW5 (hint: needs Babel)
+created: 20230825183335597
+modified: 20230826170839968
+tags: [[Developing TW5 with javascript]]
+title: Babel and ES6
+type: text/vnd.tiddlywiki
+
+<$macrocall
+  $name="tabs"
+  tabsList="[all[tiddlers+shadows]tag[Babel and ES6]]"
+  default="Babel tutorial"
+  state="$:/state/tutorial/Babel"
+  class="py-tabs"
+/>

@@ -1,0 +1,17 @@
+created: 20230822061624571
+modified: 20230822155206020
+tags: 
+title: Hub
+type: text/vnd.tiddlywiki
+
+Main portal to all projects / sections
+
+<$set filter="[tag[Project]!has[draft.of]]" name="defaultTab">
+<$macrocall
+  $name="tabs"
+  tabsList="[all[tiddlers]!has[draft.of]tag[Project]first[]]"
+  default=<<defaultTab>>
+  state="$:/state/projects"
+  class="py-tabs"
+/>
+</$set>

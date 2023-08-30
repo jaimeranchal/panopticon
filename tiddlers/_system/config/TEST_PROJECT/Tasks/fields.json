@@ -1,0 +1,17 @@
+{
+		"general":{
+		  "id":"Unique identifier",
+		  "description":"Short description",
+		  "status":"Task status",
+		  "SP":"Story points",
+		  "task-type":"Depends on the project",
+		  "sprint":"In agile projects, the current sprint"
+		},
+		"alm":{
+		  "defect-id":"Defect id",
+		  "defect-status":"Status of the defect",
+		  "defect-type":"Type of the defect",
+		  "req-id":"Requirement id",
+		  "req-status":"Requirement status"
+		}
+}

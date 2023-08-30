@@ -1,0 +1,38 @@
+caption: ⚡ Tasks
+created: 20230822070851714
+description: Things to do / done
+modified: 20230830061233348
+tags: 
+title: TEST_PROJECT/tabs/Tasks
+type: text/vnd.tiddlywiki
+
+<<details label:"<h3>Fields displayed</h3>" src:"""
+<$list filter="[[$:/config/TEST_PROJECT/Tasks/fields]get[text]jsonindexes[]]" variable="property">
+''<<property>>''<br/>
+<$list variable="value" filter="[[$:/config/TEST_PROJECT/Tasks/fields]get[text]jsonindexes<property>]">
+<$checkbox tiddler="$:/config/TEST_PROJECT/Tasks/fields" listField="selected" 
+checked=<<value>> 
+unchecked="" 
+default="">  <<value>></$checkbox><br/></$list><br/>
+</$list>"""
+status:"" labelClass:"" srcClass:"">>
+
+''Filters'':<br>
+<$list filter="[[$:/config/TEST_PROJECT/Tasks/fields]get[selected]]" variable="field">
+<!-- search specific configuration for that field -->
+<!-- must change table-dynamic filter adding something like +[search:description:caseinsensitive[mfc]] at the end -->
+<!-- display input/checkbox depending on the config -->
+<<field>>
+</$list>
+
+<$macrocall 
+$name="table-dynamic"
+filter="[!is[system]!has[draft.of]prefix[TEST_PROJECT/]tag[Task]]" 
+fields={{$:/config/TEST_PROJECT/Tasks/fields!!selected}}
+indexes=""
+caption="" 
+class="w-100" footerRows="0" 
+stateTiddler="$:/state/TEST_PROJECT/Issues" 
+editButton="yes" 
+pagination="yes" 
+emptyMessage="filter input is empty"/>

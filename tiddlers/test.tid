@@ -1,0 +1,12 @@
+created: 20230823111241541
+modified: 20230830060852747
+tags: 
+title: test
+type: text/vnd.tiddlywiki
+
+<$list filter="[[$:/config/TEST_PROJECT/Tasks/fields]get[text]jsonindexes[]]" 
+variable="property">
+<<property>>
+</$list>
+
+<<test-macro "TEST_PROJECT">>

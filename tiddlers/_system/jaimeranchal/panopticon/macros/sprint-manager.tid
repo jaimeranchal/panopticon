@@ -1,0 +1,41 @@
+created: 20230822090945306
+modified: 20230822093922696
+tags: $:/tags/Macro
+title: $:/jaimeranchal/panopticon/macros/sprint-manager
+type: text/vnd.tiddlywiki
+
+\define sprint-filter() [all[tiddlers]tag[Sprint]!sort[title]]
+\define sprint-editor(project)
+<tr>
+	<$set name="title" filter="[all[current]removeprefix[$project$/Sprints/]]">
+  <td><$link to=<<currentTiddler>>><<title>></$link></td>
+	</$set>
+  <td><$edit-text field="sprint-date-from" tag="input" type="date"/></td>
+	<td><$edit-text field="sprint-date-to" tag="input" type="date"/></td>
+  <td><$edit-text field="sprint-weeks" tag="input" type="number"/></td>
+  <td>
+    <$button class="py-btn btn-danger btn-small">
+      {{$:/core/images/delete-button}}
+      <$action-deletetiddler $tiddler=<<currentTiddler>>>
+    </$button>
+  </td>
+</tr>
+\end
+
+\define sprint-manager-table(project)
+<table class="table-borderless table-lines sprint-manager-table">
+  <tbody>
+    <tr>
+      <th>Sprint</th>
+      <th>From</th>
+			<th>To</th>
+			<th>Weeks</th>
+      <th></th>
+    </tr>
+
+    <$list filter=<<sprint-filter>>>
+      <<sprint-editor "$project$">>
+    </$list>
+  </tbody>
+</table>
+\end

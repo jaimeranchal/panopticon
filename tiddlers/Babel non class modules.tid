@@ -1,0 +1,25 @@
+caption: Non class modules
+created: 20230826170011915
+list-after: Javascript classes and Babel
+modified: 20230826170501068
+tags: [[Babel tutorial]]
+title: Babel non class modules
+type: text/vnd.tiddlywiki
+
+!!! Non Class Modules
+
+For non class modules you can use the `export` keyword. Here is a simple [[Startup Module|ModuleType]]:
+
+```javascript
+export function startup() {
+  // Do stuff here
+}
+```
+
+Or in the case of a [[Macro|https://tiddlywiki.com/dev/#JavaScript%20Macros]]:
+
+```javascript
+export const name = 'my-macro';
+export const params = {};
+export function run() {…}
+```

@@ -1,0 +1,40 @@
+caption: Classes
+created: 20230826165955597
+list-after: Babel import and exports
+modified: 20230826170524259
+tags: [[Babel tutorial]]
+title: Javascript classes and Babel
+type: text/vnd.tiddlywiki
+
+!! Classes
+
+In the example of a widget ES2016 plays well with class inheritance. To contrast the typical Widget definition would look something like this:
+
+```javascript
+function MyWidget() {
+  Widget.call(this);
+}
+MyWidget.prototype = new Widget();
+MyWidget.prototype.render = function(parent, nextSibling) {…};
+// And so on…
+```
+
+With classes this ceremony can be tightened up:
+
+```javascript
+class MyWidget extends Widget {
+  render(parent, nextSibling) {…}
+  // And so on…
+}
+```
+
+With classes one //could// eliminate much of the `Widget.execute()` cruft using <<.def "getters">>. I found this to be more readable then the typical mass assignment to `this`. It gave me the added benefit of allowing calculations in properties that normally would have conflated the `execute()` method. For example developing a compound property like so:
+
+```javascript
+class NameWidget extends Widget {
+  get title() { return this.getAttribute('title'); }
+  get firstName() { return this.getAttribute('first'); }
+  get lastName() { return this.getAttribute('last'); }
+  get fullName() { return `${this.title}. ${this.firstName} ${this.lastName}`; }
+}
+```

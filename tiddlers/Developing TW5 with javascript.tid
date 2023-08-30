@@ -1,0 +1,38 @@
+created: 20230825161331935
+modified: 20230825183326529
+tags: 
+title: Developing TW5 with javascript
+type: text/vnd.tiddlywiki
+
+It is possible to use javascript in two ways:
+
+# ''Macros'':
+#* Easier string manipulation
+#* Allows reading of other tiddlers data using `this.wiki.getTiddler('name').fields.some-field`
+#* //however//, a javascript macro cannot change the DOM.
+# ''Widgets'':
+#* full power of tiddlywiki api (`this.wiki`) to create and modify the DOM
+#* Add event listeners and work with TW5 like a web application.
+
+!! Basics
+
+To use javascript in TW5 you need to import js code as tiddlers, with a //specific module-type// field:
+
+* ''macro''
+* ''widget''
+* ''library'': a set of functions and classes useful for other modules.
+
+```javascript
+/*\
+title: $:/core/modules/widgets/count.js
+type: application/javascript
+module-type: widget
+
+Description
+
+\*/
+```
+
+!! Examples and tutorials
+
+<<list-links filter:"[tag[Developing TW5 with javascript]]">>

@@ -1,0 +1,39 @@
+created: 20230825161858892
+modified: 20230825183259841
+tags: [[Developing TW5 with javascript]]
+title: Javascript macros
+type: text/vnd.tiddlywiki
+
+Un ejemplo:
+
+```javascript
+/*\
+title: $:/jaimeranchal/panopticon/modules/test-macro.js
+type: application/javascript
+module-type: macro
+Testing javascript macros
+\*/
+(function () {
+  "use strict";
+  // macro name as it will be used in the wiki
+  exports.name = "test-macro";
+	// Array of macro parameters as objects
+  exports.params = [{name: "namespace",default: "TEST" }];
+
+  /* 
+	Exports the macro as a function:
+	- Pass the parameters defined above in params
+	- return the desired string 
+	*/
+  exports.run = function (namespace) {
+    let output = `$:/config/${namespace}/Tasks/fields`;
+
+    try {
+      return output;
+    } catch (err) {
+      console.error(err.stack);
+      return "(ERROR: " + err.message + ") ";
+    }
+  };
+})();
+```

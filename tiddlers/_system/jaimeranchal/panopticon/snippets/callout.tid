@@ -1,0 +1,13 @@
+caption: Shiraz-callout
+created: 20230822071943968
+modified: 20230822072008108
+tags: $:/tags/TextEditor/Snippet
+title: $:/jaimeranchal/panopticon/snippets/callout
+type: text/vnd.tiddlywiki
+
+<<callout 
+type:"note|example|note|question|todo|error|warning|tip" 
+src:"" 
+title:"" 
+width:"100%", 
+class:"">>

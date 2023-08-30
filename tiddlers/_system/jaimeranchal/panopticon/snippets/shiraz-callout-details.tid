@@ -1,0 +1,8 @@
+caption: Callout details (collapsible)
+created: 20230822155958756
+modified: 20230822160242354
+tags: $:/tags/TextEditor/Snippet
+title: $:/jaimeranchal/panopticon/snippets/shiraz-callout-details
+type: text/vnd.tiddlywiki
+
+<<callout-details type:"note|abstract|info|todo|tip|success|question|warning|failure|danger|bug|example|quote" src:"" title:"" status:"" width:"100%" class:"">>

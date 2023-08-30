@@ -1,0 +1,14 @@
+created: 20230822062330528
+modified: 20230830060616783
+tags: 
+title: $:/config/FileSystemPaths
+type: text/vnd.tiddlywiki
+
+[is[system]!has[draft.of]removeprefix[$:/]addprefix[_system/]]
+[is[draft]search-replace:g:regexp[/|\\],[_]addprefix[drafts/]]
+[tag[Project]addprefix[Projects/]]
+[prefix[TEST_PROJECT/]addprefix[Projects/]]
+[suffix[.jpg]addprefix[images/]]
+[suffix[.jpeg]addprefix[images/]]
+[suffix[.png]addprefix[images/]]
+[suffix[.gif]addprefix[images/]]

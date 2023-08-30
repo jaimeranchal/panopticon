@@ -1,0 +1,23 @@
+created: 20230822070115920
+description: Sample project
+modified: 20230830061426506
+tags: Project
+title: TEST_PROJECT
+type: text/vnd.tiddlywiki
+
+//{{!!description}}//
+
+<$macrocall
+  $name="tabs"
+  tabsList={{$:/config/TEST_PROJECT/homeTabs}}
+  default={{$:/config/TEST_PROJECT/homeTabs/default}}
+  state="$:/state/projects/TEST_PROJECT"
+  class="py-tabs"
+/>
+
+<<callout 
+type:"tip" 
+src:"""<<tree prefix:"TEST_PROJECT/">>"""
+title:"List of tiddlers" 
+width:"60%", 
+class:"">>

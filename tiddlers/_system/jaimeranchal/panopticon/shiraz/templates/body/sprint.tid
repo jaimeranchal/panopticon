@@ -1,0 +1,34 @@
+created: 20230823094439181
+modified: 20230830060954702
+tags: $:/tags/Table/BodyTemplate
+tbl-column-list: sprint
+title: $:/jaimeranchal/panopticon/shiraz/templates/body/sprint
+type: text/vnd.tiddlywiki
+
+\define showCell()
+  <$list filter="[<fieldOrIndex>]-index">
+		<$list filter="[<currentRecord>tags[]search[Sprints/]]" variable="tag">
+			<$set name="sprint" filter="[<tag>removeprefix[TEST_PROJECT/Sprints/]]">
+    		<$macrocall $name="tag-pill" tag=<<sprint>>/>
+			</$set>
+		</$list>
+  </$list>
+  <$list filter="[<fieldOrIndex>]-field">
+		<$list filter="[<currentRecord>tags[]search[Sprints/]]" variable="tag">
+			<$set name="sprint" filter="[<tag>removeprefix[TEST_PROJECT/Sprints/]]">
+    		<$macrocall $name="tag-pill" tag=<<sprint>>/>
+			</$set>
+		</$list>
+  </$list>
+\end
+
+<$reveal type="nomatch" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td" class="">
+<<showCell>>
+</$reveal>
+<$reveal type="match" stateTitle=<<tempTableEdit>> stateIndex="mode" text="edit" tag="td">
+<!--check if the current column is not selected for sorting-->
+<$list filter="[<tempTableSort>getindex[sortIndex]match<currentColumn>]" variable=ignore
+emptyMessage=<<editCell>> >
+ <<showCell_Locked>>
+</$list>
+</$reveal>

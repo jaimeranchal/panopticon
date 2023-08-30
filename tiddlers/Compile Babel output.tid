@@ -1,0 +1,17 @@
+caption: Compiling the output
+created: 20230826165851628
+list-after: Install and configure Babel
+modified: 20230826170609411
+tags: [[Babel tutorial]]
+title: Compile Babel output
+type: text/vnd.tiddlywiki
+
+!! Compiling the Output
+
+Pick a folder to store the ES2015 JavaScript and a folder to output the TiddlyWiki ready JavaScript. In this example I will use `src` and `lib` respectively. With Babel installed and working I can compile all the JavaScript in the `src` folder to the `lib` folder by running this command:
+
+```
+$ babel src -d lib
+```
+
+<<.warning "Babel will //not// copy over non-JavaScript files. It is up to the developer to include all the supporting files themselves. Babel only converts the ~JavaScript files (ending in `.js`) from the `src` folder to the `lib` folder.">>
