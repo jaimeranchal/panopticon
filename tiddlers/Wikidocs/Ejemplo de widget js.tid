@@ -1,0 +1,16 @@
+created: 20230903071854605
+list-after: Wikitext and Widgets
+modified: 20230910063449714
+tags: [[Javascript widgets]] Wikidocs
+title: Ejemplo de widget js
+type: text/vnd.tiddlywiki
+
+Requisitos de un widget escrito en javascript:
+
+* Tiddler tipo //javascript//
+* Campo //module-type = ''widget''//
+* Importar el widget base `require("$:/core/modules/widgets/widget.js").widget`.
+
+Un ejemplo:
+
+{{Hello.js}}

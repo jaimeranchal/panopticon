@@ -1,0 +1,39 @@
+created: 20230904155731234
+list-after: Referencias y auto-refresh
+modified: 20230910063459104
+tags: [[Javascript widgets]] Wikidocs
+title: Widget properties
+type: text/vnd.tiddlywiki
+
+Por defecto un widget tiene las siguientes propiedades:
+
+|!Name |!Description |
+|''parseTreeNode'' |Reference to the parse tree node corresponding to this widget |
+|''wiki'' |Reference to the [[Wiki]] object associated with this widget |
+|''variables'' |Hashmap of information about each [[widget variable|WidgetVariables]] (see below) |
+|''parentWidget'' |Reference to the parent widget |
+|''document'' |Reference to the document object associated with this widget. Usually either the browser global `document` variable or a reference to the FakeDomMechanism's `$tw.fakeDocument` |
+|''attributes'' |Hashmap of information about each attribute attached to this widget (see below) |
+|''children'' |Array of child widgets |
+|''domNodes'' |For widgets that directly generate DOM nodes, an array of the generated nodes |
+|''eventListeners'' |Array of event listener definitions |
+
+!! Widget Variables
+
+The widget variables defined on a widget are stored in a hashmap of the variable name. The hashmap contains:
+
+* `name`: name of variable
+* `params`: array of parameters for macro definitions, each `{name: "<name>", default: "<optionaldefault>"}`
+* `value`: string value of variable
+
+!! Widget Attributes
+
+The widget attributes associated with a widget are stored in a hashmap of the attribute name. The hashmap contains an object that describes the attribute value. Currently three attribute value types are supported:
+
+* Strings: `{type: "string", value: "<value>"}`
+* Tiddler text reference indirection: `{type: "indirect", textReference: "<textref>"}`
+* Macro invocation: `{type: "macro", value: {name: "<macroname>", params: [{name: "<paramname>", value: "<paramvalue>"}, ... ]}`
+
+!! Widget Event Listeners
+
+The event listeners attached to a widget are stored as a hashmap by event type. Each value is a handler function that accepts a single `event` parameter.

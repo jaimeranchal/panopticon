@@ -1,0 +1,16 @@
+created: 20230904153906925
+list-after: Widget properties
+modified: 20230910063314619
+tags: [[Javascript widgets]] Wikidocs
+title: Widget methods
+type: text/vnd.tiddlywiki
+
+Los métodos del objeto //Widget// están documentados en el código fuente de [[$:/core/modules/widgets/widget.js]]. 
+
+<$macrocall
+  $name="tabs"
+  tabsList="[all[tiddlers+shadows]tag[Widget methods]sort[order]]"
+  default="widget.initialise"
+  state="$:/state/widget-methods"
+  class="py-tabs tc-vertical"
+/>

@@ -1,0 +1,13 @@
+created: 20230825161929060
+modified: 20230910063300114
+tags: [[Developing TW5 with javascript]] Wikidocs
+title: Javascript widgets
+type: text/vnd.tiddlywiki
+
+<$macrocall
+  $name="tabs"
+  tabsList="[all[tiddlers+shadows]tag[Javascript widgets]]"
+  default="Wikitext and Widgets"
+  state="$:/state/js-widgets"
+  class="py-tabs tc-vertical"
+/>

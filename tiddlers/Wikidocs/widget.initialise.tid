@@ -1,0 +1,20 @@
+caption: initialise
+created: 20230904154149816
+modified: 20230910063619336
+order: 01
+tags: [[Widget methods]] Wikidocs
+title: widget.initialise
+type: text/vnd.tiddlywiki
+
+Initialise widget properties. These steps are pulled out of the constructor so that we can reuse them in subclasses
+
+```javascript
+/* 
+- parseTreeNode: reference to the parse tree node to be rendered
+- options: include:
+--	wiki: mandatory reference to wiki associated with this render tree
+--	parentWidget: optional reference to a parent renderer node for the context chain
+--	document: optional document object to use instead of global document
+*/
+widget.initialise(parseTreeNode,options)
+```

@@ -1,0 +1,42 @@
+created: 20230903074059728
+list-after: Ejemplo de widget js
+modified: 20230910063453464
+tags: [[Javascript widgets]] Wikidocs
+title: Referencias y auto-refresh
+type: text/vnd.tiddlywiki
+
+Si el widget utiliza como atributos campos de otros tiddlers, y estos cambian durante la ejecución, hay que asegurarse de que el widget se actualiza.
+
+```javascript
+/*
+A widget with optimized performance will selectively refresh, but here we refresh always
+*/
+MyWidget.prototype.refresh = function(changedTiddlers) {
+	// Regenerate and rerender the widget and
+	// replace the existing DOM node
+	this.refreshSelf();
+	return true;
+};
+```
+
+Y aquí un ejemplo de refresco selectivo:
+
+```javascript
+/*
+Selectively refreshes the widget if needed. Returns true if the widget or any of its children needed re-rendering
+*/
+ViewWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if(changedAttributes.tiddler || changedAttributes.field || changedAttributes.index || changedAttributes.template || changedAttributes.format || changedTiddlers[this.viewTitle]) {
+		this.refreshSelf();
+		return true;
+	} else {
+		return false;
+	}
+};
+```
+
+
+Y un [[ejemplo completo|refresh.js]]:
+
+{{refresh.js}}

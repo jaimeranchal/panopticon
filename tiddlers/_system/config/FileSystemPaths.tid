@@ -7,6 +7,7 @@ type: text/vnd.tiddlywiki
 [is[system]!has[draft.of]removeprefix[$:/]addprefix[_system/]]
 [is[draft]search-replace:g:regexp[/|\\],[_]addprefix[drafts/]]
 [tag[Project]addprefix[Projects/]]
+[tag[Wikidocs]!has[draft.of]addprefix[Wikidocs/]]
 [prefix[TEST_PROJECT/]addprefix[Projects/]]
 [suffix[.jpg]addprefix[images/]]
 [suffix[.jpeg]addprefix[images/]]
