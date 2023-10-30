@@ -1,5 +1,5 @@
 /*\
-title: $:/jaimeranchal/panopticon/modules/test-macro.js
+title: $:/jairan/panopticon/modules/test-macro.js
 type: application/javascript
 module-type: macro
 Testing javascript macros

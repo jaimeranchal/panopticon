@@ -1,7 +1,7 @@
 created: 20230822155549871
-modified: 20230830060922366
+modified: 20231030084141028
 tags: $:/tags/Global
-title: $:/jaimeranchal/panopticon/macros/task-manager
+title: $:/jairan/panopticon/macros/task-manager
 type: text/vnd.tiddlywiki
 
 \procedure task-manager-table(project)

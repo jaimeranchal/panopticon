@@ -1,5 +1,5 @@
 created: 20230825161858892
-modified: 20230910063243554
+modified: 20231030084325927
 tags: [[Developing TW5 with javascript]] Wikidocs
 title: Javascript macros
 type: text/vnd.tiddlywiki
@@ -8,7 +8,7 @@ Un ejemplo:
 
 ```javascript
 /*\
-title: $:/jaimeranchal/panopticon/modules/test-macro.js
+title: $:/jairan/panopticon/modules/test-macro.js
 type: application/javascript
 module-type: macro
 Testing javascript macros

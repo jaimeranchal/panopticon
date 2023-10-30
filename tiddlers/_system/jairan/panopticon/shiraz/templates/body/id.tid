@@ -1,8 +1,8 @@
 created: 20230822094336301
-modified: 20230822094504352
+modified: 20231030084158835
 tags: $:/tags/Table/BodyTemplate
 tbl-column-list: id
-title: $:/jaimeranchal/panopticon/shiraz/templates/body/id
+title: $:/jairan/panopticon/shiraz/templates/body/id
 type: text/vnd.tiddlywiki
 
 \define showCell()

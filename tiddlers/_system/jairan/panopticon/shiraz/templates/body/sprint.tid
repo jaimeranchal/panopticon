@@ -1,8 +1,8 @@
 created: 20230823094439181
-modified: 20230830060954702
+modified: 20231030084207207
 tags: $:/tags/Table/BodyTemplate
 tbl-column-list: sprint
-title: $:/jaimeranchal/panopticon/shiraz/templates/body/sprint
+title: $:/jairan/panopticon/shiraz/templates/body/sprint
 type: text/vnd.tiddlywiki
 
 \define showCell()

@@ -1,0 +1,17 @@
+caption: 📌 Readme
+created: 20231030083336459
+modified: 20231030083838702
+tags: 
+title: $:/jairan/panopticon/readme
+type: text/vnd.tiddlywiki
+
+!! Panopticon
+
+This plugin aims to:
+
+* improve wiki content overview. 
+* Also, to create new tiddlers based on data definitions in JSON.
+
+<$list filter="[prefix[$:/jairan/]!has[draft.of]] [prefix[$:/jaimeranchal/panopticon]!has[draft.of]]" variable="item">
+<<item>><br>
+</$list>

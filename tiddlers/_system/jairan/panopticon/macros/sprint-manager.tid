@@ -1,7 +1,7 @@
 created: 20230822090945306
-modified: 20230822093922696
+modified: 20231030084131230
 tags: $:/tags/Macro
-title: $:/jaimeranchal/panopticon/macros/sprint-manager
+title: $:/jairan/panopticon/macros/sprint-manager
 type: text/vnd.tiddlywiki
 
 \define sprint-filter() [all[tiddlers]tag[Sprint]!sort[title]]
