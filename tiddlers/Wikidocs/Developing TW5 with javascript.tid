@@ -38,3 +38,94 @@ Description
 <div class="tc-table-of-contents">
 <<toc-selective-expandable "Developing TW5 with javascript">>
 </div>
+
+!! Tiddlywiki core objecs and methods:
+
+!!! `$tw.utils`: tools and helper methods
+
+* `hop(object,property)`: check if and object has a property
+* `isArray(value)`
+* `isArrayEqual(array1, array2)`
+* `insertSortedArray(array,value)`: add entry to sorted array, keeping order
+* `pushTop(array,value = "value||[val1,val2,valN...]")`: push entries onto an array; overwrites exiting entries
+* `isDate(value)`
+* `each(object,callback = function(element,title,object))`: iterate callback through all props of object or array
+* `domMaker(tag = 'div', options = {namespace,attributes={},style={},text,children=[],innerHTML,class,document,eventListeners})`: helper for creating DOM elements
+* `error(err)`: display an error and exit 
+* `extend(object, sourceObjectList)`: extend and object with props from a list of source objects
+* `deepDefaults(object, sourceObjectList)`: fill any null or undefined props of an object with the props from a list of sources recursively.
+* `decodeURIComponentSave(string)`
+* `decodeURISafe(string)`
+* `htmlDecode(string)`
+* `getLocationHash()`: Get the browser location.hash
+* `pad(value,length)`: pad a string to a given length with '0s'; default 2.
+* `stringifyDate(value)`: convert a date into UTC YYYMMDDHHMMSSmmm
+* `parseDate(value)`: from format UTC YYYYMMDDHHMMSSmmm.
+* `stringifyList(value)`: stringify an array of tiddler titles into a list string
+* `parseStringArray(value,allowDuplicate)`: parse a string array from a bracketted list: "tiddler [[tid two]] ..."
+* `parseFields(text,fields)`: Returns an object based on pairs name:value passed as a string. 
+* `parseJSONSafe(text,defaultJSON)`: safely parse a string as JSON.
+* `resolvePath(source,root)`: Resolves a source filepath delimited with `/` relative to a specified absolute root filepath.
+n relative paths, the special folder name `..` refers to immediate parent directory, and the
+ame `.` refers to the current directory.
+* `parseVersion(version)`: parse a semantic version string into its constituent parts (s. https://semver.org).
+* `compareVersions(versionA, versionB)`: returns 1+ if version A (string) is greater than B.
+* `checkVersions(versionA, versionB)`: returns true if version A (string) is greater than B.
+* `registerFileType(type,encoding,extension,options)`: register file type information in `$tw.config.fileExtenstionInfo[type]`.options: {flags: flags,deserializerType: deserializerType}; flags:"image" for image types; deserializerType: defaults to type if not specified.
+* `getFileExtensionInfo(ext)`: read `$tw.config.fileExtensionInfo`.
+* `getTypeEncoding(ext)`: get correct encoding for a file extension.
+* `evalGlobal(code,context,filename,sandbox,allowGlobals)`: run code globally with specified context variables in scope
+* `evalSandboxed(code,context,filename,sandbox,allowGlobals)`: run code in a sandbox with only specified context variables in scope. 
+* class `PasswordPrompt`: password prompt object:
+** `setWrapperDisplay()`: hides or shows the wrapper depending whether there are outstanding prompts.
+** `createPrompt(options)`: adds a new passw. prompt. Options: submitText: text for submit button; serviceName: human readable service name; noUserName: true to disable username prompt; canCancel: true to enable cancel button; repeatPassword: true to ask passw. twice; callback: function({username:password}). ''Possible model for creating forms''.
+** `removePrompt(promptInfo)`
+* class `Crypto`: helper object for encrypted content. Keeps the passw. text in a closure and gives methods to change the passw. and encrypt/decrypt a text block.
+** `setPassword(newPassword)`
+** `updateCryptoStateTiddler()`
+** `hasPassword()`
+** `encrypt(text,password)`
+** `decrypt(text,password)`
+
+!!! `$tw.Tiddler`: barebones tiddler object
+
+* `constructor(fields = [])`: basic fields: //title//, //text//, //tags//
+* `hasField(field)`
+* `isEqual(tiddler,excludeFields = [])`: here, //tiddler// is other tiddler with which to compare the current one.
+
+!!! `$tw.Wiki`: barebones wiki store
+
+Wiki constructor. State is stored in private members that only a small number of privileged accessor methods have direct access. Methods added via the prototype have to use these accessors and cannot access the state data directly.
+options include: //enableIndexers// - Array of indexer names to enable, or null to use all available indexers.
+
+* `getTiddlerTitles()`
+* `getShadowTiddlerTitles()`
+* `addIndexer(indexer,name)`
+* `getIndexer(name)`
+* `addTiddler(tiddler = object type Tiddler)`
+* `deleteTiddler(title)`
+* `getTiddler(title)`
+* `allTitles()`: return array of all tiddler titles.
+* `each(callback)`: iterate through all tiddler titles.
+* `allShadowTitles()`: return array of all shadow tiddler titles.
+* `eachShadow(callback)`: iterate through all shadow tiddler titles.
+* `eachTiddlerPlusShadows(callback)`: iterate through all tiddlers then shadows.
+* `eachShadowsPlusTiddler(callback)`: iterate through all shadows then tiddlers.
+* `tiddlerExists(title)`: check if tiddler exists.
+* `isShadowTiddler(title)`
+* `getShadowSource(title)`
+* `getPluginTypes()`: return array of recognised plugin types.
+* `readPluginInfo(titles)`: Read plugin info for all plugins, or just an array of titles. Returns the number of plugins updated or deleted.
+* `getPluginInfo(title)`: return plugin info for a plugin.
+* `registerPluginTiddlers(pluginType, titles)`: returns the array of titles affected.
+* `unregisterPluginTiddlers(pluginType, titles)`: returns the array of titles affected.
+* `unpackPluginTiddlers()`: unpack the currently registered plugins, creating shadow tiddler for their constituent tiddlers.
+* `clearChache()`, `clearGlobalCache()`, `enqueueTiddlerEvent()`
+* `addTiddlers(tiddlers)`
+* `defineTiddlerModules()`: define all modules stored in ordinary tiddlers
+* `defineShadowModules()`: register all module tiddlers with a module type
+* `processSafeMode()`: enable safe mode by deleting any tiddlers that override a shadow tiddler
+* `deserializeTiddlers(type,text,srcFields,options)`: extract tiddlers from a typed block of text, specifying default field values
+* `deserializeHeaderComment(text,fields)`: register the build in tiddler desearializer modules
+ 
+!!! Hooks
