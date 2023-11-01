@@ -1,0 +1,56 @@
+created: 20231101120002218
+modified: 20231101122946111
+tags: [[Tiddlywiki on Node.js]] Wikidocs
+title: Node.js commands
+type: text/vnd.tiddlywiki
+
+A ''command'' is one of the following words, written with a `--` prefix and used as a command-line option under Node.js, indicating which action is desired.
+
+Each command is defined in `$:/core/modules/commands/<command>.js`.
+
+* `--build <target> [<target> ...]`: //targets// are defined in file ''tiddlywiki.info''. Not exactly sure what this does.
+* `--clearpassword`: clear password for //following// crypto operations.
+* `--commands <filter>`: sequentially run command tokens returned from a filter
+* `--deletetiddlers <filter>`
+* `--editions`: lists names and descriptions of available editions.
+* `--fetch file <url> <import-filter> <transform-filter>` (see [[docs|https://tiddlywiki.com/#FetchCommand]])
+* `--help <command>`
+* `--import <filepath> <deserializer> [<title>] [<encoding>]`: import tiddlers from Tiddlywiki (`.html`), `.tiddler`, `.tid`, `.json` or other local files. See [[docs|https://tiddlywiki.com/#ImportCommand]]
+* `<folder> --init <edition> [<edition> ...]`: initialise an empty wikifolder with a copy of the specified edition.
+* `--listen [<name>=<value>]`: serves a wiki over HTTP. Available parameters:
+** ''host'' - optional hostname to serve from (defaults to "127.0.0.1" aka "localhost")
+** ''path-prefix'' - optional prefix for paths
+** ''port'' - port number on which to listen; non-numeric values are interpreted as a system environment variable from which the port number is extracted (defaults to "8080")
+** ''credentials'' - pathname of credentials CSV file (relative to wiki folder)
+** ''anon-username'' - the username for signing edits for anonymous users
+** ''username'' - optional username for basic authentication
+** ''password'' - optional password for basic authentication
+** ''authenticated-user-header'' - optional name of request header to be used for trusted authentication.
+** ''readers'' - comma-separated list of principals allowed to read from this wiki
+** ''writers'' - comma-separated list of principals allowed to write to this wiki
+** ''csrf-disable'' - set to "yes" to disable CSRF checks (defaults to "no")
+** ''root-tiddler'' - the tiddler to serve at the root (defaults to "$:/core/save/all")
+** ''root-render-type'' - the content type to which the root tiddler should be rendered (defaults to "text/plain")
+** ''root-serve-type'' - the content type with which the root tiddler should be served (defaults to "text/html")
+** ''tls-cert'' - pathname of TLS certificate file (relative to wiki folder)
+** ''tls-key'' - pathname of TLS key file (relative to wiki folder)
+** ''debug-level'' - optional debug level; set to "debug" to view request details (defaults to "none")
+** ''gzip'' - set to "yes" to enable gzip compression for some http endpoints (defaults to "no")
+** ''use-browser-cache'' - set to "yes" to allow the browser to cache responses to save bandwidth (defaults to "no")
+* `--load <filepath> [noerror]`: alternative to import without need of specifying the deserializer.
+* ~~`makelibrary`~~: ''for internal use only''.
+* `--output <pathname>`: sets the base output directory for following commands. Default is the //output// subdirectory of the edition directory.
+* `--password <password>`: sets a password for the following crypto operations
+* `--render <tiddler-filter> [<filename-filter>] [<render-type>] [<template>] [<name>] [<value>]`: render individual tiddlers from a filter and save the results to the specified files. See [[docs|https://tiddlywiki.com/#RenderCommand]]. Options:
+** ''tiddler-filter'': which tids to be rendered
+** ''filename-filter'': (//optional//) transforms tid titles into pathnames. Default to `title.html`.
+** ''render-type'': (//optional//): `text/html` return full HTML, while `text/plain` ignores tags and unprintable code.
+** ''template'': for tid rendering
+** ''name'' and ''value'': name and value of optional variables
+* `--save <tiddler-filter> <filename-filter>`: saves tids to specified files.
+* `--savewikifolder <folderpath> [<filter>] [ [<name>=<value>] ]*`: for transforming a tiddlywiki single html file into a wiki folder. Options:
+** ''filter'': define which tids to include in the output
+** ''explodePlugins'': default //yes//; whether to explode plugins into separate tiddlers within the //plugins// folder or keep them as JSON tiddlers.
+* `--unpackplugin <title>`: extract payload tiddlers from a plugin as ordinary tids.
+* `--verbose`: //sure, tell me more//.
+* `--version`: displays the current version.
