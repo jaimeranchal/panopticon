@@ -1,0 +1,49 @@
+created: 20231101110214779
+modified: 20231101110307267
+tags: [[Tiddlywiki core objects]] Wikidocs
+title: Tiddlywiki Utils Object
+type: text/vnd.tiddlywiki
+
+!!! `$tw.utils`: tools and helper methods
+
+* `hop(object,property)`: check if and object has a property
+* `isArray(value)`
+* `isArrayEqual(array1, array2)`
+* `insertSortedArray(array,value)`: add entry to sorted array, keeping order
+* `pushTop(array,value = "value||[val1,val2,valN...]")`: push entries onto an array; overwrites exiting entries
+* `isDate(value)`
+* `each(object,callback = function(element,title,object))`: iterate callback through all props of object or array
+* `domMaker(tag = 'div', options = {namespace,attributes={},style={},text,children=[],innerHTML,class,document,eventListeners})`: helper for creating DOM elements
+* `error(err)`: display an error and exit 
+* `extend(object, sourceObjectList)`: extend and object with props from a list of source objects
+* `deepDefaults(object, sourceObjectList)`: fill any null or undefined props of an object with the props from a list of sources recursively.
+* `decodeURIComponentSave(string)`
+* `decodeURISafe(string)`
+* `htmlDecode(string)`
+* `getLocationHash()`: Get the browser location.hash
+* `pad(value,length)`: pad a string to a given length with '0s'; default 2.
+* `stringifyDate(value)`: convert a date into UTC YYYMMDDHHMMSSmmm
+* `parseDate(value)`: from format UTC YYYYMMDDHHMMSSmmm.
+* `stringifyList(value)`: stringify an array of tiddler titles into a list string
+* `parseStringArray(value,allowDuplicate)`: parse a string array from a bracketted list: "tiddler [[tid two]] ..."
+* `parseFields(text,fields)`: Returns an object based on pairs name:value passed as a string. 
+* `parseJSONSafe(text,defaultJSON)`: safely parse a string as JSON.
+* `resolvePath(source,root)`: Resolves a source filepath delimited with `/` relative to a specified absolute root filepath. In relative paths, the special folder name `..` refers to immediate parent directory, and the name `.` refers to the current directory.
+* `parseVersion(version)`: parse a semantic version string into its constituent parts (s. https://semver.org).
+* `compareVersions(versionA, versionB)`: returns 1+ if version A (string) is greater than B.
+* `checkVersions(versionA, versionB)`: returns true if version A (string) is greater than B.
+* `registerFileType(type,encoding,extension,options)`: register file type information in `$tw.config.fileExtenstionInfo[type]`.options: {flags: flags,deserializerType: deserializerType}; flags:"image" for image types; deserializerType: defaults to type if not specified.
+* `getFileExtensionInfo(ext)`: read `$tw.config.fileExtensionInfo`.
+* `getTypeEncoding(ext)`: get correct encoding for a file extension.
+* `evalGlobal(code,context,filename,sandbox,allowGlobals)`: run code globally with specified context variables in scope
+* `evalSandboxed(code,context,filename,sandbox,allowGlobals)`: run code in a sandbox with only specified context variables in scope. 
+* class `PasswordPrompt`: password prompt object:
+** `setWrapperDisplay()`: hides or shows the wrapper depending whether there are outstanding prompts.
+** `createPrompt(options)`: adds a new passw. prompt. Options: submitText: text for submit button; serviceName: human readable service name; noUserName: true to disable username prompt; canCancel: true to enable cancel button; repeatPassword: true to ask passw. twice; callback: function({username:password}). ''Possible model for creating forms''.
+** `removePrompt(promptInfo)`
+* class `Crypto`: helper object for encrypted content. Keeps the passw. text in a closure and gives methods to change the passw. and encrypt/decrypt a text block.
+** `setPassword(newPassword)`
+** `updateCryptoStateTiddler()`
+** `hasPassword()`
+** `encrypt(text,password)`
+** `decrypt(text,password)`

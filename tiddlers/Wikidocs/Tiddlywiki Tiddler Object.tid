@@ -1,0 +1,11 @@
+created: 20231101110228262
+modified: 20231101110323001
+tags: [[Tiddlywiki core objects]] Wikidocs
+title: Tiddlywiki Tiddler Object
+type: text/vnd.tiddlywiki
+
+!!! `$tw.Tiddler`: barebones tiddler object
+
+* `constructor(fields = [])`: basic fields: //title//, //text//, //tags//
+* `hasField(field)`
+* `isEqual(tiddler,excludeFields = [])`: here, //tiddler// is other tiddler with which to compare the current one.

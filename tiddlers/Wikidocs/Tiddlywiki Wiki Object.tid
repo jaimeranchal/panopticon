@@ -1,0 +1,40 @@
+created: 20231101110246284
+modified: 20231101110335274
+tags: [[Tiddlywiki core objects]] Wikidocs
+title: Tiddlywiki Wiki Object
+type: text/vnd.tiddlywiki
+
+!!! `$tw.Wiki`: barebones wiki store
+
+Wiki constructor. State is stored in private members that only a small number of privileged accessor methods have direct access. Methods added via the prototype have to use these accessors and cannot access the state data directly.
+options include: //enableIndexers// - Array of indexer names to enable, or null to use all available indexers.
+
+* `getTiddlerTitles()`
+* `getShadowTiddlerTitles()`
+* `addIndexer(indexer,name)`
+* `getIndexer(name)`
+* `addTiddler(tiddler = object type Tiddler)`
+* `deleteTiddler(title)`
+* `getTiddler(title)`
+* `allTitles()`: return array of all tiddler titles.
+* `each(callback)`: iterate through all tiddler titles.
+* `allShadowTitles()`: return array of all shadow tiddler titles.
+* `eachShadow(callback)`: iterate through all shadow tiddler titles.
+* `eachTiddlerPlusShadows(callback)`: iterate through all tiddlers then shadows.
+* `eachShadowsPlusTiddler(callback)`: iterate through all shadows then tiddlers.
+* `tiddlerExists(title)`: check if tiddler exists.
+* `isShadowTiddler(title)`
+* `getShadowSource(title)`
+* `getPluginTypes()`: return array of recognised plugin types.
+* `readPluginInfo(titles)`: Read plugin info for all plugins, or just an array of titles. Returns the number of plugins updated or deleted.
+* `getPluginInfo(title)`: return plugin info for a plugin.
+* `registerPluginTiddlers(pluginType, titles)`: returns the array of titles affected.
+* `unregisterPluginTiddlers(pluginType, titles)`: returns the array of titles affected.
+* `unpackPluginTiddlers()`: unpack the currently registered plugins, creating shadow tiddler for their constituent tiddlers.
+* `clearChache()`, `clearGlobalCache()`, `enqueueTiddlerEvent()`
+* `addTiddlers(tiddlers)`
+* `defineTiddlerModules()`: define all modules stored in ordinary tiddlers
+* `defineShadowModules()`: register all module tiddlers with a module type
+* `processSafeMode()`: enable safe mode by deleting any tiddlers that override a shadow tiddler
+* `deserializeTiddlers(type,text,srcFields,options)`: extract tiddlers from a typed block of text, specifying default field values
+* `deserializeHeaderComment(text,fields)`: register the build in tiddler desearializer modules

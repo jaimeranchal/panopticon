@@ -20,20 +20,36 @@
       //get attributes
       const id = this.getAttribute('id') || this.getVariable('currentTiddler');
       const target = this.getAttribute('field') || 'todo-data';
-
+      //New todo input
+      const inputTodo = $tw.utils.domMaker('input',{ document: this.document, class: 'pptc-input'});
       //build html
-      const wrapper = $tw.utils.domMaker(
+      this.domNode = $tw.utils.domMaker(
         'div',
         {
           document: this.document,
           class: 'pptc-todo',
-          // children: [],
+          children: [inputTodo],
           // attributes: {},
           // style: {},
           // eventListeners: ""
         }
       )
+      parent.insertBefore(this.domNode, nextSibling);
+    }
+
+    refresh(){
+      // recover widget attributes (parameters) that have changed
+      let changedAttributes = this.computeAttributes();
+      // if any attribute is not undefined, it has changed
+      if ( changedAttributes.id || changedAttributes.field ) {
+        this.refreshSelf();
+        return true;
+      } else {
+        return false;
+      }
     }
   }
+
+  exports.todo = TodoWidget;
 
 })();
