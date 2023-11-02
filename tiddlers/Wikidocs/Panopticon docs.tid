@@ -1,0 +1,15 @@
+caption: 📕 Panopticon Manual
+created: 20231102141827714
+list: $:/jairan/panopticon/docs/manual/01 $:/jairan/panopticon/docs/manual/02 $:/jairan/panopticon/docs/manual/03
+modified: 20231102142206644
+tags: Wikidocs
+title: Panopticon docs
+type: text/vnd.tiddlywiki
+
+<$macrocall
+  $name="tabs"
+  tabsList={{Panopticon docs!!list}}
+  default="[[$:/jairan/panopticon/docs/manual/01]]"
+  state="$:/state/panpticon-manual"
+  class="py-tabs"
+/>

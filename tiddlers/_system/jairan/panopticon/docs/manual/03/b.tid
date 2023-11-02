@@ -1,0 +1,10 @@
+caption: $new
+created: 20231020073309398
+modified: 20231102141743145
+tags: exported
+title: $:/jairan/panopticon/docs/manual/03/b
+type: text/vnd.tiddlywiki
+
+!! The //$new// widget
+
+This widgets creates a "new category" button. It relies on [[Data/categories]] to generate a ''form''.

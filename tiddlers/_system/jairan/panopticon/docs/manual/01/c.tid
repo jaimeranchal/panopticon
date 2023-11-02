@@ -1,0 +1,53 @@
+caption: Relationship types
+created: 20231020081606800
+modified: 20231102141743144
+tags: exported
+title: $:/jairan/panopticon/docs/manual/01/c
+type: text/vnd.tiddlywiki
+
+!! Relationships between categories
+
+Each category represents a ''tag''. If a category defines one or more //dependent categories//, that relationship must be reflected by the tiddlers tagged with the main category.
+
+For example, a tiddler `My project` is tagged <<tag-pill "Namespace">>. This tag means the tiddler will have all the fields defined in the category //namespace//. Each namespace has //issues// and //documentation// as subcategories, so there will be multiple tiddlers related to `My project`.
+
+The relation can be expressed in three ways, using the parent tiddler title:
+
+# as a ''prefix'' (default for namespaces)
+# as a ''tag''
+# as a ''field value''
+
+The ''relationship'' property of a category selects the chosen method. 
+
+!!! "Has" prefix
+The default option for //namespaces//. Dependent tiddlers' titles will be prefixed with the parent tiddler title. An example:
+
+```
+- MyProject (#namespace)
+- MyProject/issue00245 (#issue)
+- MyProject/issue00248 (#issue)
+- MyProject/docum031 (#documentation)
+- ...
+```
+
+!!! "Has" tag
+If the relationship is to be expressed with tags, the related tiddlers will be tagged with parent tiddler title:
+
+```
+- MyProject (#namespace)
+- issue00245 (#issue #MyProject)
+- issue00248 (#issue #MyProject)
+- docum031 (#documentation #MyProject)
+- ...
+```
+
+!!! "Has" field
+When choosing the //field// option, the defined field will be filled with parent tiddler title:
+
+```
+- MyProject (#namespace)
+- issue00245 (#issue) (field:MyProject)
+- issue00248 (#issue) (field:MyProject)
+- docum031 (#documentation) (field:MyProject)
+- ...
+```

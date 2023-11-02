@@ -1,0 +1,10 @@
+caption: Configuration
+created: 20231020072059059
+modified: 20231102141743145
+tags: $:/jairan/panopticon/readme exported
+title: $:/jairan/panopticon/docs/manual/02
+type: text/vnd.tiddlywiki
+
+* ''Category admin'' tiddler is needed. Text could be a macro that:
+** Shows a list of every category defined in the JSON, using //has// and //parents// fields to nest categories dependent on each other
+* ''Template admin'' tiddler: list templates in [[Data/templates]] with a button to add/remove <<tag-pill "$:/tags/ViewTemplate">>. Optional: possibility to change order in [[$:/tags/ViewTemplate]] list field.

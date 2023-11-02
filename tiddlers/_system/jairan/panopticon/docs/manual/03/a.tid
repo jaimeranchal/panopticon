@@ -1,0 +1,27 @@
+caption: $info
+created: 20231020073237874
+modified: 20231102141743145
+tags: exported
+title: $:/jairan/panopticon/docs/manual/03/a
+type: text/vnd.tiddlywiki
+
+!! The //$info// widget
+
+<<alert "warning" "This info may change at any moment">>
+
+This plugin adds an ''info section'' inside every tiddler tagged with a defined category. The //panopticon// ("see it all") is divided in three parts:
+
+|!Header|Display caption and icon|
+|!Body|Display customised fields info|
+|!Footer|List related records, if any, with buttons to create/edit/delete|
+
+A tiddler `$:/jaimeranchal/panopticon/ui/body` contains the template for displaying fields and related content. It is tagged <<tag-pill "$:/tags/ViewTemplate">> and listed before the main tiddler body.
+
+The `<$info>` does the magic. Basically:
+
+# Generates a div element with class `ptc-wrapper`:
+#* if tiddler body width is ''greater than 686px'' it takes only `1/3` of the tiddler width. Otherwise it takes the full width.
+# Displays tiddler data from the fields described in [[Data/categories]]
+# Customizable with ''templates'' (see [[Category templates|$:/jairan/panopticon/docs/manual/01/e]])
+# If the tiddler has related //categories//, the widget adds a create button.
+

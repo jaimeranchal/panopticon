@@ -1,0 +1,65 @@
+caption: Definition
+created: 20231020081539364
+modified: 20231102141743144
+tags: exported
+title: $:/jairan/panopticon/docs/manual/01/a
+type: text/vnd.tiddlywiki
+
+!! Defining categories
+
+This wiki is structured in ''categories''. Taking as reference the Object Oriented Programming style, each category is a //class//, with the tiddlers tagged with it being //instances//. Categories can have ''subcategories''. Take a look at these tree of ''existing //category// tags''.
+
+<<callout type:"example" title:"Quick steps (WIP)" width:"100%" src:"""
+# Define a category as JSON in [[Data/categories]]
+# Define a template tiddler in [[Data/templates]]
+# Fill in template.
+# You are ready to go! (for now)
+""">>
+
+To define a category, edit tiddler [[Data/categories]]. Add a new entry to the //categories// array, with the following template:
+
+```json
+[
+  { 
+    "name": "<category_name>",
+    "extends": "<category_name", // Category from which it inherits properties
+    "title": {
+      "base": "basename",
+      "template": "${base}#${count}",
+      "counter":3 // number of counter digits: 3 = 001; 4 = 0001 ...
+    }, // title template data needed for unusedtitle macro
+    "icon": "<icon>",
+    "fields": [
+      {
+        "name":"field_1",
+        "desc":"description of the field"
+      },
+      {
+        "name":"field_2",
+        "desc":"description of the field",
+        "enum":["value1", "value2"] //list of possible values
+      },
+    ], //additional custom fields (not Tiddlywiki fields)
+    "has": [
+      { 
+        "name":"category_1",
+        "onlyFor": {"field":"", "value":""},
+        "relationship":"prefix/tag/<field_name>" // default "prefix"
+      },
+      { "name":"category_2" },
+      { "name":"..." }
+    ], //list of related sub-categories
+    "parents": [
+      { 
+        "name":"category_1",
+        "relationship":"prefix/tag/<field_name>" // default "prefix"
+      },
+      { "name":"category_2" }
+    ] //list of parent categories
+  }
+]
+```
+
+A visual example:
+
+[img[$:/jairan/panopticon/docs/manual/01/images/uml.png]]

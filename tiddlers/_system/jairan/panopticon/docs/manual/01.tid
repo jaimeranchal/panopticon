@@ -1,0 +1,16 @@
+caption: Categories
+created: 20231020072031696
+modified: 20231102141743144
+tags: $:/jairan/panopticon/readme exported
+title: $:/jairan/panopticon/docs/manual/01
+type: text/vnd.tiddlywiki
+
+<div class="tc-more-sidebar">
+<$macrocall
+  $name="tabs"
+  tabsList="[prefix[$:/jairan/panopticon/docs/manual/01/]!prefix[$:/jairan/panopticon/docs/manual/01/images/]]"
+  default="[[$:/jairan/panopticon/docs/manual/01/a]]"
+  state="$:/state/categories"
+  class="py-tabs tc-vertical"
+/>
+</div>

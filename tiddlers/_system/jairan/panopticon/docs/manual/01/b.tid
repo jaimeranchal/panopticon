@@ -1,0 +1,33 @@
+caption: //Has// and //parents//
+created: 20231020081552164
+modified: 20231102141743144
+tags: exported
+title: $:/jairan/panopticon/docs/manual/01/b
+type: text/vnd.tiddlywiki
+
+!! //Has// and //parents// properties
+
+; Has
+: Defines a list of categories //dependent// of the category defined. E.g., a namespace will usually have documentation tiddlers, tagged <<tag-pill "Doc">>. After creating a namespace, a user would want to quickly access all related tiddlers with documentation, as well as create new ones. This means ''a //namespace// has //documentation//''.
+
+; Parents
+: Bottoms-up way of defining relationship between tiddlers is defining under which categories they should be displayed. Following up with the previous example, //notes// would probably be a common sub-category for many, so it's easier to define all parent categories directly inside //notes// definition, instead of adding a value on each of the parents. This means ''a //note// is a child of //issue// and //documentation// and so on''.
+
+<<callout type:"info" title:"Customizing specific categories" width:"100%" src:"""
+Sometimes, under the same category you'd want to have different sub-categories depending on the specific category. For example, one project may have diferent types of //requirements// with their own properties. How to configure that? Adding the property ''onlyFor'' to the definition:
+
+```json
+// the sub-category SC3 will only be displayed if namespace title is 'TISYNCRO'
+{
+  "name":"Namespace"
+  "has": [
+    { 
+      "name": "SC3",
+      "onlyFor": { "field": "title", "value": "TISYNCRO" },
+    },
+    { "name": "Documentation" },
+    { "name": "Requirement" }
+  ]
+}
+```
+""">> 

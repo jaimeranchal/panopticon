@@ -1,0 +1,18 @@
+caption: Widgets
+created: 20231020072134107
+modified: 20231102141743145
+tags: $:/jairan/panopticon/readme exported
+title: $:/jairan/panopticon/docs/manual/03
+type: text/vnd.tiddlywiki
+
+This plugin is all about //viewing better// and //manage repeated things// better. This is done by ''three widgets'': `<$panopticon>`, `<$new>` and `<$info>`.
+
+<div class="tc-more-sidebar">
+<$macrocall
+  $name="tabs"
+  tabsList="[prefix[$:/jairan/panopticon/docs/manual/03/]!prefix[$:/jairan/panopticon/docs/manual/03/images/]]"
+  default="[[$:/jairan/panopticon/docs/manual/03/a]]"
+  state="$:/state/manual-widgets"
+  class="py-tabs tc-vertical"
+/>
+</div>

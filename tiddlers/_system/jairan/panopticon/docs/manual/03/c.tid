@@ -1,0 +1,14 @@
+caption: $panopticon
+created: 20231020073320513
+modified: 20231102141743145
+tags: exported
+title: $:/jairan/panopticon/docs/manual/03/c
+type: text/vnd.tiddlywiki
+
+!! The //$panopticon// widget
+
+This is an supercharged version of the `tabs` macro, customisable on the fly. Its meant to be the main hub of a wiki.
+
+Mockup:
+
+[img[$:/jairan/panopticon/docs/manual/03/images/info-widget-mock.png]]

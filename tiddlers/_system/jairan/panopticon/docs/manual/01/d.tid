@@ -1,0 +1,31 @@
+caption: Inheritance
+created: 20231020081620978
+modified: 20231102141743144
+tags: exported
+title: $:/jairan/panopticon/docs/manual/01/d
+type: text/vnd.tiddlywiki
+
+!! Inheritance and Extension
+
+Imagine you have defined a category and now you need another very similar, only with slightly different properties. It is possible to quickly define it as an //extension// of the former, using the property ''extends''. 
+
+Take the //Bug// category, for example. Tiddlers tagged as <<tag-pill "bug">> describe errors that need to be fixed. Now I need to tell apart bugs types depending on the source system. Each has specific attributes but share the main properties of a bug. You can do it defining a //productive Bug// like this:
+
+```json
+{
+  "name": "Productive Bug",
+  "extends": "Bug", // include all properties from Bug category
+  "fields": [
+    {
+      "name":"prod_user",
+      "desc":"Reporter of the bug"
+    }, 
+    {
+      "name":"time_limit",
+      "desc":"Maximum time allowed for resolving the issue"
+    }
+  ] // new fields specific to a Productive Bug
+}
+```
+
+You can also ''overwrite'' a parent's property description this way, simply adding it to the fields array.
